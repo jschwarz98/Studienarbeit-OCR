@@ -118,7 +118,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Jannik Schwarz - inf18147@lehre.dhbw-stuttgart.de -
+Jannik Schwarz - inf18147@lehre.dhbw-stuttgart.de
+
+Alireza Gholami - inf18154@lehre.dhbw-stuttgart.de
 
 Project Link: https://github.com/jschwarz98/Studienarbeit-OCR
 
