@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Text, Image } from "react-native";
 
 import DropDownPicker from "react-native-dropdown-picker";
 import galleryPicker from "./GalleryPicker";
+import cameraPicker from "./CameraPicker";
 
 import styles from "./Styles";
 import constants from "../Constants";
@@ -30,7 +31,7 @@ const buttonArray = (props) => {
 
       <TouchableOpacity
         onPress={() => {
-          galleryPicker(
+          cameraPicker(
             props.setImage,
             props.language,
             props.selectedImageCallback

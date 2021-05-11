@@ -12,6 +12,8 @@ import galleryPicker from "./src/components/ButtonArray/GalleryPicker";
 import TesseractOcr from "react-native-tesseract-ocr";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+import SelectedImageBox from "./src/components/selectedImageBox/SelectedImageBox";
+
 export default function App() {
   const [image, setImage] = useState(null);
   const [text, setText] = useState(
@@ -21,14 +23,14 @@ export default function App() {
 
   // Mit Übergabewerten, da sonst beim ersten Ausführung null übergeben wird.
   // Keine Ahnung warum. React Hooks zu langsam?
-  let recognizeTextInImage = async (image, language) => {
+  let recognizeTextInImage = async (pickedImage, pickedLanguage) => {
     setText("Recognizing text...");
     try {
-      const path = image.replace("file:", "");
+      const path = pickedImage.replace("file:", "");
       const tesseractOptions = {};
       const recognizedText = await TesseractOcr.recognize(
         path,
-        language,
+        pickedLanguage,
         tesseractOptions
       );
       if (recognizedText != "") {
@@ -53,25 +55,12 @@ export default function App() {
         selectedImageCallback={recognizeTextInImage}
       />
 
-      <TouchableOpacity
-        onPress={() => galleryPicker(setImage, language, recognizeTextInImage)}
-      >
-        <View>
-          {image && (
-            <View style={styles.imageContainer}>
-              <Image source={{ uri: image }} style={styles.image} />
-            </View>
-          )}
-          {!image && (
-            <View style={styles.imageContainerDefault}>
-              <Image
-                source={require("./src/assets/images/placeholder2.jpg")}
-                style={styles.defaultImage}
-              />
-            </View>
-          )}
-        </View>
-      </TouchableOpacity>
+      <SelectedImageBox
+        image={image}
+        language={language}
+        setImage={setImage}
+        selectedImageCallback={recognizeTextInImage}
+      />
 
       <View style={styles.scrollviewContainer}>
         <ScrollView>
