@@ -122,6 +122,6 @@ Jannik Schwarz - inf18147@lehre.dhbw-stuttgart.de -
 
 Project Link: https://github.com/jschwarz98/Studienarbeit-OCR
 
-## Acknoledgements
+## Acknowledgements
 
 - [README-Template](https://github.com/othneildrew/Best-README-Template/blob/master/README.md)
