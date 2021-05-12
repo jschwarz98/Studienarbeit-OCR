@@ -1,7 +1,9 @@
 import React from "react";
 import { View, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import galleryPicker from "../ButtonArray/GalleryPicker";
+
+import galleryPicker from "../ButtonArray/PickerFunctions/GalleryPicker";
+import constants from "../Constants";
 import styles from "./Styles";
 
 function SelectedImageBox(props) {
@@ -25,7 +27,7 @@ function SelectedImageBox(props) {
           {!props.image && (
             <View style={styles.imageContainerDefault}>
               <Image
-                source={require("../../assets/images/placeholder2.jpg")}
+                source={constants.imagebox_placeholder}
                 style={styles.defaultImage}
               />
             </View>

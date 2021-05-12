@@ -1,5 +1,4 @@
 import * as ImagePicker from "expo-image-picker";
-import { imagePickerOptions } from "./ImageOptions";
 
 const pickImageFromGallery = async (setImage, language, callback) => {
   // TODO: Kamera

@@ -1,18 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { Image, Text, View, ScrollView } from "react-native";
+import { View } from "react-native";
 
 import styles from "./AppStyles";
 
-import Header from "./src/components/header/Header";
-
+import Header from "./src/components/Header/Header";
 import ButtonArray from "./src/components/ButtonArray/ButtonArray";
-import galleryPicker from "./src/components/ButtonArray/GalleryPicker";
+import SelectedImageBox from "./src/components/SelectedImageBox/SelectedImageBox";
+import RecognizedTextContainer from "./src/components/RecognizedTextContainer/RecognizedTextContainer";
 
 import TesseractOcr from "react-native-tesseract-ocr";
-import { TouchableOpacity } from "react-native-gesture-handler";
-
-import SelectedImageBox from "./src/components/selectedImageBox/SelectedImageBox";
 
 export default function App() {
   const [image, setImage] = useState(null);
@@ -47,6 +44,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
+
       <Header />
       <ButtonArray
         language={language}
@@ -54,19 +52,13 @@ export default function App() {
         setImage={setImage}
         selectedImageCallback={recognizeTextInImage}
       />
-
       <SelectedImageBox
         image={image}
         language={language}
         setImage={setImage}
         selectedImageCallback={recognizeTextInImage}
       />
-
-      <View style={styles.scrollviewContainer}>
-        <ScrollView>
-          <Text style={styles.recognizedText}>{text}</Text>
-        </ScrollView>
-      </View>
+      <RecognizedTextContainer text={text} />
     </View>
   );
 }

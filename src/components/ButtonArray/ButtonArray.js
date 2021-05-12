@@ -1,9 +1,10 @@
 import React from "react";
-import { View, TouchableOpacity, Text, Image } from "react-native";
-
+import { View } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
-import galleryPicker from "./GalleryPicker";
-import cameraPicker from "./CameraPicker";
+
+import galleryPicker from "./PickerFunctions/GalleryPicker";
+import cameraPicker from "./PickerFunctions/CameraPicker";
+import CustomButton from "./CustomButton/CustomButton";
 
 import styles from "./Styles";
 import constants from "../Constants";
@@ -11,59 +12,45 @@ import constants from "../Constants";
 const buttonArray = (props) => {
   return (
     <View style={styles.buttonArrayContainer}>
-      <TouchableOpacity
-        onPress={() => {
-          galleryPicker(
-            props.setImage,
-            props.language,
-            props.selectedImageCallback
-          );
-        }}
-      >
-        <View style={styles.galleryButtonContent}>
-          <Image
-            source={constants.gallery_image}
-            style={styles.buttonImageStyle}
-          />
-          <Text>Gallery</Text>
-        </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        onPress={() => {
-          cameraPicker(
-            props.setImage,
-            props.language,
-            props.selectedImageCallback
-          );
-        }}
-      >
-        <View style={styles.galleryButtonContent}>
-          <Image
-            source={constants.camera_image}
-            style={styles.buttonImageStyle}
-          />
-          <Text style={styles.galleryButtonText}>Camera</Text>
-        </View>
-      </TouchableOpacity>
-
-      <DropDownPicker
-        items={[
-          {
-            label: "German",
-            value: "deu",
-          },
-          {
-            label: "English",
-            value: "eng",
-          },
-        ]}
-        defaultValue={props.language}
-        style={styles.dropDownPicker}
-        itemStyle={styles.dropDownPickerItem}
-        dropDownStyle={styles.dropDownStyle}
-        onChangeItem={(item) => props.setLanguage(item.value)}
-      />
+      <View style={styles.button}>
+        <CustomButton
+          text="Gallery"
+          image={constants.gallery_image}
+          picker={galleryPicker}
+          setImage={props.setImage}
+          language={props.language}
+          selectedImageCallback={props.selectedImageCallback}
+        />
+      </View>
+      <View style={styles.button}>
+        <CustomButton
+          text="Camera"
+          image={constants.camera_image}
+          picker={cameraPicker}
+          setImage={props.setImage}
+          language={props.language}
+          selectedImageCallback={props.selectedImageCallback}
+        />
+      </View>
+      <View style={styles.pickerContainer}>
+        <DropDownPicker
+          items={[
+            {
+              label: "German",
+              value: "deu",
+            },
+            {
+              label: "English",
+              value: "eng",
+            },
+          ]}
+          defaultValue={props.language}
+          onChangeItem={(item) => props.setLanguage(item.value)}
+          dropDownStyle={styles.dropDownStyle}
+          itemStyle={styles.dropDownPickerItem}
+          style={styles.dropDownPicker}
+        />
+      </View>
     </View>
   );
 };
