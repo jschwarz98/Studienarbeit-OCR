@@ -7,17 +7,13 @@ const stylesheet = StyleSheet.create({
     height: 50,
     margin: 5,
     marginBottom: 10,
-
-    backgroundColor: colors.primary_color,
-
+    backgroundColor: colors.primaryColor,
     justifyContent: "center",
   },
   titleText: {
     fontSize: 20,
     fontWeight: "bold",
-
-    color: colors.fontColor_white,
-
+    color: colors.fontColorWhite,
     textAlign: "center",
   },
 });

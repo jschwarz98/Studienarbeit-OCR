@@ -9,13 +9,24 @@ import CustomButton from "./CustomButton/CustomButton";
 import styles from "./Styles";
 import constants from "../Constants";
 
+const languageOptions = [
+  {
+    label: "German",
+    value: "deu",
+  },
+  {
+    label: "English",
+    value: "eng",
+  },
+];
+
 const buttonArray = (props) => {
   return (
     <View style={styles.buttonArrayContainer}>
       <View style={styles.button}>
         <CustomButton
-          text="Gallery"
-          image={constants.gallery_image}
+          text={constants.galleryButtonText}
+          image={constants.galleryImage}
           picker={galleryPicker}
           setImage={props.setImage}
           language={props.language}
@@ -24,8 +35,8 @@ const buttonArray = (props) => {
       </View>
       <View style={styles.button}>
         <CustomButton
-          text="Camera"
-          image={constants.camera_image}
+          text={constants.cameraButtonText}
+          image={constants.cameraImage}
           picker={cameraPicker}
           setImage={props.setImage}
           language={props.language}
@@ -34,16 +45,7 @@ const buttonArray = (props) => {
       </View>
       <View style={styles.pickerContainer}>
         <DropDownPicker
-          items={[
-            {
-              label: "German",
-              value: "deu",
-            },
-            {
-              label: "English",
-              value: "eng",
-            },
-          ]}
+          items={languageOptions}
           defaultValue={props.language}
           onChangeItem={(item) => props.setLanguage(item.value)}
           dropDownStyle={styles.dropDownStyle}

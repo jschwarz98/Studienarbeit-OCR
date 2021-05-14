@@ -27,7 +27,7 @@ function SelectedImageBox(props) {
           {!props.image && (
             <View style={styles.imageContainerDefault}>
               <Image
-                source={constants.imagebox_placeholder}
+                source={constants.imageboxPlaceholder}
                 style={styles.defaultImage}
               />
             </View>

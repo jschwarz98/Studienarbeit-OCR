@@ -1,4 +1,4 @@
 export default {
-  primary_color: "#00A693",
-  fontColor_white: "white",
+  primaryColor: "#00A693",
+  fontColorWhite: "white",
 };
