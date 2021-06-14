@@ -5,8 +5,12 @@ const values = {
   cameraButtonText: "Camera",
   defaultLanguage: "eng",
   waitingMessage: "Recognizing text...",
-  noTextFound: "Didn't recognize any text",
-  errorMessage: "Error occured",
+  noTextFound_ger: "Es wurde kein Text erkannt.",
+  noTextFound_eng: "Didn't recognize any text.",
+  errorMessage_ger: "Es ist ein Fehler aufgetreten.",
+  errorMessage_eng: "An error occured.",
+  recognizedTextContainerWelcomeMessage:
+    "The recognized text will be displayed here!\nIf needed, you can scroll down.\nTry it out right now!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHello there!\n\n",
 
   // Images
   galleryImage: require("../assets/icons/image-gallery.png"),

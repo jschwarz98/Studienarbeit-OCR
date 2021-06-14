@@ -16,12 +16,13 @@ import TesseractOcr from "react-native-tesseract-ocr";
 export default function App() {
   const [image, setImage] = useState(null);
   const [recognizedText, setRecognizedText] = useState(
-    "The recognized text will be displayed here! \nIf needed, you can scroll down. \nTry it out right now! \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Hello there! :) \n\n"
+    constants.recognizedTextContainerWelcomeMessage
   );
   const [language, setLanguage] = useState(constants.defaultLanguage);
 
   // Mit Übergabewerten, da sonst beim ersten Ausführung null übergeben wird.
   // Keine Ahnung warum. React Hooks zu langsam?
+
   let recognizeTextInImage = async (pickedImage, pickedLanguage) => {
     setRecognizedText(constants.waitingMessage);
     try {
@@ -37,11 +38,29 @@ export default function App() {
       if (ocrText != "") {
         setRecognizedText(ocrText);
       } else {
-        setRecognizedText(constants.noTextFound);
+        switch (language) {
+          case "deu":
+            setRecognizedText(constants.noTextFound_ger);
+            break;
+
+          case "eng":
+          default:
+            setRecognizedText(constants.noTextFound_eng);
+            break;
+        }
       }
     } catch (err) {
       console.error(err);
-      setRecognizedText(constants.errorMessage);
+      switch (language) {
+        case "deu":
+          setRecognizedText(constants.errorMessage_ger);
+          break;
+
+        case "eng":
+        default:
+          setRecognizedText(constants.errorMessage_eng);
+          break;
+      }
     }
   };
 

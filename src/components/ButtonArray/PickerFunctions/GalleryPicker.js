@@ -1,8 +1,6 @@
 import * as ImagePicker from "expo-image-picker";
 
 const pickImageFromGallery = async (setImage, language, callback) => {
-  // TODO: Kamera
-  // Fertig: Galerie
   let permissionResult =
     await ImagePicker.requestMediaLibraryPermissionsAsync();
 
@@ -11,6 +9,8 @@ const pickImageFromGallery = async (setImage, language, callback) => {
     return;
   }
 
+  // https://github.com/expo/expo/tree/master/packages/expo-image-picker
+  // Übersicht um Permissions einzustellen, damit man croppen can etc...
   let pickerResult = await ImagePicker.launchImageLibraryAsync();
   if (pickerResult.cancelled) {
     return;
@@ -19,4 +19,5 @@ const pickImageFromGallery = async (setImage, language, callback) => {
   setImage(pickerResult.uri);
   callback(pickerResult.uri, language);
 };
+
 module.exports = pickImageFromGallery;

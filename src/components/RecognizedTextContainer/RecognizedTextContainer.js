@@ -6,7 +6,9 @@ function textContainer(props) {
   return (
     <View style={styles.scrollviewContainer}>
       <ScrollView>
-        <Text style={styles.recognizedText}>{props.text}</Text>
+        <Text selectable={true} style={styles.recognizedText}>
+          {props.text}
+        </Text>
       </ScrollView>
     </View>
   );
