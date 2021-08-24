@@ -4,9 +4,9 @@ import { View } from "react-native";
 
 import styles from "./AppStyles";
 
-import Header from "./src/components/Header/Header";
+import Header from "./src/components/header/Header";
 import ButtonArray from "./src/components/ButtonArray/ButtonArray";
-import SelectedImageBox from "./src/components/SelectedImageBox/SelectedImageBox";
+import SelectedImageBox from "./src/components/selectedImageBox/SelectedImageBox";
 import RecognizedTextContainer from "./src/components/RecognizedTextContainer/RecognizedTextContainer";
 
 import constants from "./src/components/Constants";
@@ -26,7 +26,15 @@ export default function App() {
   let recognizeTextInImage = async (pickedImage, pickedLanguage) => {
     setRecognizedText(constants.waitingMessage);
     try {
-      const imagePath = pickedImage.replace("file:", "");
+      let imagePath = "";
+
+      if (
+        !pickedImage.startsWith("file:///") &&
+        pickedImage.startsWith("file:/")
+      ) {
+        imagePath = pickedImage.replace("file:/", "file:///");
+      }
+
       const tesseractOptions = {};
 
       const ocrText = await TesseractOcr.recognize(
