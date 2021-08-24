@@ -45,11 +45,15 @@ This project was built with
 - Android / iOS phone or emulator
 - react native
 - npm
+- Java (preferably Java 8)
+
+If you don't have a React Native development environment for android or iOS setup you can follow the steps found [here](https://reactnative.dev/docs/environment-setup).
 
 ### Installation
 
 1. Clone the repository
 2. Install the required NPM-packages via
+
 
 ```sh
 npm install
