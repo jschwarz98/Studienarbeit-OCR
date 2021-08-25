@@ -28,7 +28,7 @@
 
 ## About The Project
 
-This app was developed alongside our project-thesis for OCR (optical character recognition). The goal within the time we were given was to create a simple app, which allows the user to read text within images. These images come from either their gallery or their camera.
+This app was developed alongside our project-thesis for OCR (optical character recognition). The goal within the time we were given was to create a simple app, which allows the user to read text within images. These images come from either their gallery or their camera. Currently only Android devices are fully supported. This is because this projects relies on the [react-native-tesseract-ocr](https://github.com/jonathanpalma/react-native-tesseract-ocr) project, which does not fully support iOS yet. 
 
 ### Built with
 
