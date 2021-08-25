@@ -44,7 +44,7 @@ This project was built with
 
 - Android / iOS phone or emulator
 - react native
-- npm
+- nodejs and npm
 - Java (preferably Java 8)
 
 If you don't have a React Native development environment for android or iOS setup you can follow the steps found [here](https://reactnative.dev/docs/environment-setup).
