@@ -35,7 +35,6 @@ This app was developed alongside our project-thesis for OCR (optical character r
 This project was built with
 
 - React-Native
-- Expo
 - [react-native-tesseract-ocr](https://github.com/jonathanpalma/react-native-tesseract-ocr)
 
 ## Getting Started
